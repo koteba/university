@@ -15,5 +15,18 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'name' => 'name',
+    'name_en' => 'name in English',
+    'phone' => 'phone',
+    'email' => 'email',
+    'password' => 'password',
+    'confirm_password' => 'Confirm password',
+    'specification' => 'specification',
+    'department' => 'department',
+    'year' => 'year',
+'student' => 'sign as student',
+    'teacher' => 'sign as teacher',
+    'admin' => 'Admin',
+    'register' => 'register',
+    'please_wait' => 'please wait for the admin to approve',
 ];

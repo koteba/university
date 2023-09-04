@@ -1,5 +1,5 @@
 <!-- jquery -->
-<script src="{{ URL::asset('assets/js/jquery-3.3.1.min.js') }}"></script>
+{{--  <script src="{{ URL::asset('assets/js/jquery-3.3.1.min.js') }}"></script>  --}}
 <!-- plugins-jquery -->
 <script src="{{ URL::asset('assets/js/plugins-jquery.js') }}"></script>
 <!-- plugin_path -->
@@ -44,7 +44,9 @@
     <script src="{{ URL::asset('assets/js/bootstrap-datatables/ar/dataTables.bootstrap4.min.js') }}"></script>
 @endif
 
-
+{{-- @jquery --}}
+@toastr_js
+@toastr_render
 
 <script>
     function CheckAll(className, elem) {

@@ -8,9 +8,9 @@ NOTE:
 
 */
 
- (function($){
-  "use strict";
-// Line Stacked
+(function($) {
+    "use strict";
+    // Line Stacked
 
     $('.date-picker-default').datepicker({
         format: 'mm-dd-yyyy',
@@ -41,7 +41,7 @@ NOTE:
             rightArrow: '<i class="fa fa-angle-right"></i>'
         }
     });
-    
+
 
     $('#datepicker-inline').datepicker({
         todayHighlight: true,
@@ -107,7 +107,7 @@ NOTE:
         }
     });
 
-var checkin = $('.range-from').datepicker({
+    var checkin = $('.range-from').datepicker({
         onRender: function(date) {
             return date.valueOf() < now.valueOf() ? 'disabled' : '';
         }
@@ -129,4 +129,4 @@ var checkin = $('.range-from').datepicker({
         checkout.hide();
     }).data('datepicker');
 
- })(jQuery);
+})(jQuery);

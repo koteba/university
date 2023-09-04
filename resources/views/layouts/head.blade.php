@@ -12,6 +12,7 @@
 
 <link href="{{ URL::asset('css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @yield('css')
 <!--- Style css -->
@@ -23,3 +24,4 @@
 @else
     <link href="{{ URL::asset('assets/css/rtl.css') }}" rel="stylesheet">
 @endif
+   @toastr_css

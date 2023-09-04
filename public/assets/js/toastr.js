@@ -68,7 +68,7 @@ NOTE:
                 newestOnTop: $('#newestOnTop').prop('checked'),
                 progressBar: $('#progressBar').prop('checked'),
                 rtl: $('#rtl').prop('checked'),
-                positionClass: $('#positionGroup input:radio:checked').val() || 'toast-top-right',
+                positionClass: $('#positionGroup input:radio:checked').val() || 'toast-top-center',
                 preventDuplicates: $('#preventDuplicates').prop('checked'),
                 onclick: null
             };

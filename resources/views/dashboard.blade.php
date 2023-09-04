@@ -49,7 +49,7 @@
                 </div>
             </div>
             <!-- widgets -->
-            <div class="row" >
+           {{--  <div class="row" >
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -131,9 +131,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>   --}}
             <!-- Orders Status widgets-->
-            <div class="row">
+             {{--  <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
                         <!-- action group -->
@@ -198,8 +198,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div>  --}}
+            {{--  <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card h-100">
                         <div class="card-body">
@@ -252,8 +252,8 @@
                                                     aria-selected="true"> Months</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="year-tab" data-toggle="tab" href="#year"
-                                                    role="tab" aria-controls="year" aria-selected="false">Year
+                                                <a class="nav-link" id="section-tab" data-toggle="tab" href="#section"
+                                                    role="tab" aria-controls="section" aria-selected="false">section
                                                 </a>
                                             </li>
                                         </ul>
@@ -342,13 +342,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="year" role="tabpanel" aria-labelledby="year-tab">
+                                    <div class="tab-pane fade" id="section" role="tabpanel" aria-labelledby="section-tab">
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
                                                 <img class="img-fluid" src="images/blog/09.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">Walk out 10 years into</h6>
+                                                <h6 class="mb-0 sm-mt-5">Walk out 10 sections into</h6>
                                                 <p class="sm-mb-5 d-block">Understanding the price and having
                                                     the willingness to pay. </p>
                                                 <span class="mb-0">by - <b class="text-danger">TheZayka</b>
@@ -429,8 +429,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+            </div>  --}}
+            {{--  <div class="row">
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -575,9 +575,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  --}}
 
-            <div class="calendar-main mb-30">
+            {{--  <div class="calendar-main mb-30">
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="row">
@@ -667,14 +667,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>    --}}
             <!--=================================
  wrapper -->
 
             <!--=================================
  footer -->
 
-            @include('layouts.footer')
+            {{--  @include('layouts.footer')  --}}
         </div><!-- main content wrapper end-->
     </div>
     </div>

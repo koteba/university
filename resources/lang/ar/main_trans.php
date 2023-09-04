@@ -4,15 +4,15 @@ return [
 
     'Dashboard'=>'الرئيسية',
     'Dashboard_page'=>'لوحة التحكم',
-    'Main_title'=>'برنامج مورا سوفت لادارة المدارس',
-    'Programname' => 'برنامج مورا سوفت لادارة المدارس',
+    'Main_title'=>'جامعة طائر الفينيق',
+    'Programname' => 'جامعة طائر الفينيق',
     'change_language'=>'تغير اللغة',
-    'Grades'=>'المراحل الدراسية',
-    'Grades_list'=>'قائمة المراحل الدراسية',
-    'classes'=>'الصفوف',
-    'List_classes'=>'قائمة الصفوف الدراسية',
-    'sections'=>'الاقسام',
-    'List_sections'=>'قائمة الاقسام الدراسية',
+    'Collages'=>'الكليات',
+    'Collages_list'=>'قائمة الكليات',
+    'sections'=>'الأقسام',
+    'List_sections'=>'قائمة الأقسام',
+    'sections'=>'الأقسام',
+    'List_sections'=>'قائمة الأقسام',
     'students'=>'الطلاب',
     'Teachers'=>'المعلمين',
     'List_Teachers' => 'قائمة المعلمين',
@@ -27,7 +27,9 @@ return [
     'Settings'=>'الاعدادات',
     'Users'=>'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',
-    'Name_Programer' => 'سمير جمال مورا سوفت'
+    'Name_Programer' => 'جامعة طائر الفينيق',
+  'years'=>'السنوات',
+    'List_years'=>'قائمة السنوات',
 
 
 ];

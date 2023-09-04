@@ -13,67 +13,82 @@
     </a>
 </li>
                     <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">{{trans('main_trans.Programname')}} </li>
+                    <li class="mt-10 mb-10  pl-4 font-medium menu-title"   style="color: #f9767b">{{trans('main_trans.Programname')}} </li>
 
-                    <!-- Grades-->
+@if (Auth::user()->user_type<5)
+    
+                    <!-- Collages-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Grades-menu">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Collages-menu">
                             <div class="pull-left"><i class="fas fa-school"></i><span
-                                    class="right-nav-text">{{trans('main_trans.Grades')}}</span></div>
+                                    class="right-nav-text">{{trans('main_trans.Collages')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Grades-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('Grades.index')}}">{{trans('main_trans.Grades_list')}}</a></li>
+                        <ul id="Collages-menu" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('collage.index') }}">{{trans('main_trans.Collages_list')}}</a></li>
 
                         </ul>
                     </li>
-                    <!-- classes-->
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#classes-menu">
-                            <div class="pull-left"><i class="fa fa-building"></i><span
-                                    class="right-nav-text">{{trans('main_trans.classes')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="classes-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('Classrooms.index')}}">{{trans('main_trans.List_classes')}}</a></li>
-                        </ul>
-                    </li>
-
-
-                    <!-- sections-->
+                    <!-- departments-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections-menu">
-                            <div class="pull-left"><i class="fas fa-chalkboard"></i></i><span
+                            <div class="pull-left"><i class="fa fa-building"></i><span
                                     class="right-nav-text">{{trans('main_trans.sections')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('Sections.index')}}">{{trans('main_trans.List_sections')}}</a></li>
+                            <li><a href="{{ route('department.index') }} ">{{trans('main_trans.List_sections')}}</a></li>
+
+
+                           
                         </ul>
                     </li>
 
 
-                    <!-- students-->
+                  
+@endif
+
+
+                    <!-- courses-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu">
                             <div class="pull-left"><i class="fas fa-user-graduate"></i></i></i><span
-                                    class="right-nav-text">{{trans('main_trans.students')}}</span></div>
+                                    class="right-nav-text">{{trans('department.Courses')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="students-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="calendar.html">Events Calendar </a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+@if (Auth::user()->department_id)
+    <li> <a href="
+{{ route('department.course.index',Auth::user()->department_id) }}
+">{{ __('course.Courses_list') }}</a> </li>
+@endif                            
+
+      <li> <a href="{{ route('myCourses',Auth::id()) }}">
+{{ __('admin.my_courses') }}</a> </li>
+@if (Auth::user()->user_type==5)
+<li> <a href="{{ route('mark.index') }}">
+{{ __('course.marks') }}</a> </li>
+@endif
+
+@if (Auth::user()->user_type<5)
+
+       <li> <a href="{{ route('acceptCourseSign') }}">
+{{ __('course.acceptCourse') }}</a> </li>
+
+
+      <li> <a href="{{ route('import_export_mark') }}">
+{{ __('course.marks') }}</a> </li>
+@endif                            
                         </ul>
                     </li>
 
 
 
                     <!-- Teachers-->
-                    <li>
+                    {{-- <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Teachers-menu">
                             <div class="pull-left"><i class="fas fa-chalkboard-teacher"></i></i><span
                                     class="right-nav-text">{{trans('main_trans.Teachers')}}</span></div>
@@ -81,52 +96,36 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Teachers-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{route('Teachers.index')}}">{{trans('main_trans.List_Teachers')}}</a> </li>
+                            <li> <a href=" ">{{trans('main_trans.List_Teachers')}}</a> </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
 
-                    <!-- Parents-->
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Parents-menu">
-                            <div class="pull-left"><i class="fas fa-user-tie"></i><span
-                                    class="right-nav-text">{{trans('main_trans.Parents')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Parents-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{url('add_parent')}}">{{trans('main_trans.List_Parents')}}</a> </li>
-                        </ul>
-                    </li>
+                  
+@if (Auth::user()->user_type<3)
 
                     <!-- Accounts-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
                             <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
-                                    class="right-nav-text">{{trans('main_trans.Accounts')}}</span></div>
+                                    class="right-nav-text">{{trans('admin.accounts')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="calendar.html">Events Calendar </a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+                           
+ <li><a href="{{ route('teachers') }}"><i class="fas fa-chalkboard-teacher"></i>  {{ __('admin.teachers') }} </a> </li>
+
+                            <li><a href="{{ route('students') }}"> <i class="fas fa-user-graduate"></i>{{ __('admin.students') }}</a> </li>
+@if (Auth::user()->user_type<3)
+
+                            <li> <a href="{{ route('confirm_teachers') }}"> <i class="fas fa-check-double"></i>{{ __('admin.confirm_teachers') }}</a> </li>
+<li> <a href="{{ route('import_export') }}"> <i class="fas fa-file-import"></i>{{ __('admin.import_export') }}</a> </li>
+@endif
                         </ul>
                     </li>
 
-                    <!-- Attendance-->
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Attendance-icon">
-                            <div class="pull-left"><i class="fas fa-calendar-alt"></i><span class="right-nav-text">{{trans('main_trans.Attendance')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Attendance-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
-                        </ul>
-                    </li>
-
+@endif
                     <!-- Exams-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
@@ -135,15 +134,37 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+@if (Auth::user()->user_type<5)
+
+                            <li> <a href="{{ route('exam.create') }}">{{ __('exam.create_exam') }}</a> </li>
+@endif
+@if (Auth::user()->user_type==5)
+
+                            <li> 
+<form action="{{ route('code') }}" method="post">
+@csrf
+<a href="#" onclick="$(this).closest('form').submit()">{{ __('exam.enter_exam') }}</a>
+
+</form>
+</li>
+  @endif                         
+                        </ul>
+                    </li>
+<!-- blog-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#blog-icon">
+                            <div class="pull-left"><i class="far fa-handshake"></i><span class="right-nav-text">{{trans('post.blog')}}</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="blog-icon" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{ route('post.index') }}">{{trans('post.blog')}}</a> </li>
+                            
                         </ul>
                     </li>
 
-
                     <!-- library-->
-                    <li>
+                    {{--  <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#library-icon">
                             <div class="pull-left"><i class="fas fa-book"></i><span class="right-nav-text">{{trans('main_trans.library')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
@@ -154,7 +175,7 @@
                             <li> <a href="themify-icons.html">Themify icons</a> </li>
                             <li> <a href="weather-icon.html">Weather icons</a> </li>
                         </ul>
-                    </li>
+                    </li>  --}}
 
 
                     <!-- Onlinec lasses-->
@@ -165,13 +186,19 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+@if (Auth::user()->user_type < 5)
+    
+  <li> <a href="{{ route('meeting.create') }}">{{ __('meeting.create_online_lesson') }}</a> </li>
+@endif                          
+
+                            <li> <a href="{{ route('meeting.index') }}">{{ __('main_trans.Onlineclasses') }}</a> </li>
+
+
+                           
                         </ul>
                     </li>
 
-
+{{-- 
                     <!-- Settings-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Settings-icon">
@@ -200,7 +227,7 @@
                             <li> <a href="weather-icon.html">Weather icons</a> </li>
                         </ul>
                     </li>
-
+ --}}
                 </ul>
             </div>
         </div>

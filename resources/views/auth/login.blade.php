@@ -8,7 +8,7 @@
     <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
     <meta name="author" content="potenzaglobalsolutions.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>برنامج مورا سوفت لادارة المدارس</title>
+    <title>Phoenix University</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" />
@@ -45,10 +45,9 @@
                 <div class="row justify-content-center no-gutters vertical-align">
                     <div class="col-lg-4 col-md-6 login-fancy-bg bg"
                         style="background-image: url(images/login-inner-bg.jpg);">
-                        <div class="login-fancy">
-                            <h2 class="text-white mb-20">Hello world!</h2>
-                            <p class="mb-20 text-white">Create tailor-cut websites with the exclusive multi-purpose
-                                responsive template along with powerful features.</p>
+                        <div class="login-fancy pl-2 " style="text-align: center">
+                            <h2 class="text-white mb-20">Phoenix University</h2>
+                            <p class="mb-20 text-white" style="letter-spacing: 3px; word-spacing:4px;">trust us for your future</p>
                             <ul class="list-unstyled  pos-bot pb-30">
                                 <li class="list-inline-item"><a class="text-white" href="#"> Terms of Use</a> </li>
                                 <li class="list-inline-item"><a class="text-white" href="#"> Privacy Policy</a></li>
@@ -93,6 +92,8 @@
                                         <input type="checkbox" class="form-control" name="two" id="two" />
                                         <label for="two"> تذكرني</label>
                                         <a href="#" class="float-right">هل نسيت كلمةالمرور ؟</a>
+                                        <br>
+                                        <a href="{{ route('register') }}" class="float-right">التسجيل</a>
                                     </div>
                                 </div>
                                 <button class="button"><span>دخول</span><i class="fa fa-check"></i></button>

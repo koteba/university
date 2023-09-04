@@ -3,7 +3,7 @@ header start-->
 <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <!-- logo -->
     <div class="text-left navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="{{ url('/dashboard') }}"><img src="{{ URL::asset('assets/images/logo-dark.png') }}" alt=""></a>
+        <a class="navbar-brand brand-logo" href="{{ url('/dashboard') }}"><img src="{{ URL::asset('assets/images/logo-dark‫ ‬.png') }}" alt=""></a>
         <a class="navbar-brand brand-logo-mini" href="{{ url('/dashboard') }}"><img src="{{ URL::asset('assets/images/logo-icon-dark.png') }}"
                 alt=""></a>
 
@@ -55,24 +55,33 @@ header start-->
             <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                 aria-expanded="false">
                 <i class="ti-bell"></i>
-                <span class="badge badge-danger notification-status"> </span>
+@if (Auth::user()->un_read()>0)
+                  <span class="badge badge-danger notification-status"> </span>  
+@endif
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
                 <div class="dropdown-header notifications">
-                    <strong>{{trans('Sidebar_trans.Notifications')}}</strong>
-                    <span class="badge badge-pill badge-warning">05</span>
-                </div>
+                    <strong>{{trans('Sidebar_trans.Notifications')}} &nbsp; 
+<a href="{{ route('Allasread') }}"><small>{{ __('messages.as_read') }}</small></a></strong>
+                    @if (Auth::user()->un_read()>0)
+<span class="badge badge-pill badge-warning">
+{{ Auth::user()->un_read() }}
+</span>
+ @endif
+               </div>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">New registered user <small
-                        class="float-right text-muted time">Just now</small> </a>
-                <a href="#" class="dropdown-item">New invoice received <small
-                        class="float-right text-muted time">22 mins</small> </a>
-                <a href="#" class="dropdown-item">Server error report<small
-                        class="float-right text-muted time">7 hrs</small> </a>
-                <a href="#" class="dropdown-item">Database report<small class="float-right text-muted time">1
-                        days</small> </a>
-                <a href="#" class="dropdown-item">Order confirmation<small class="float-right text-muted time">2
-                        days</small> </a>
+@forelse (Auth::user()->messages->reverse() as $message)
+    <a href="{{ route('usread',$message->id) }}" class="dropdown-item">
+{{ $message->title }}
+<small class="float-right text-muted time">{{ $message->created_at->diffForHumans() }}</small> 
+                </a>
+@empty
+    <a href="{{ route('message.index') }}" class="dropdown-item">
+{{ __('messages.no_messages') }}
+                </a>
+@endforelse
+                
+                
             </div>
         </li>
         <li class="nav-item dropdown ">
@@ -104,7 +113,11 @@ header start-->
         <li class="nav-item dropdown mr-30">
             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">
-                <img src="{{ URL::asset('assets/images/user_icon.png') }}" alt="avatar">
+@if (Auth::user()->photo)
+    <img src="{{url('/attachments/profiles/'.Auth::user()->photo)}}" alt="avatar">
+@else
+       <img src="{{ URL::asset('assets/images/user_icon.png') }}" alt="avatar">
+@endif
 
 
             </a>
@@ -119,8 +132,8 @@ header start-->
                 </div>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a>
-                <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
-                <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Profile</a>
+                <a class="dropdown-item" href="{{ route('message.index') }}"><i class="text-success ti-email"></i>Messages</a>
+                <a class="dropdown-item" href="{{ route('user.show',Auth::id()) }}"><i class="text-warning ti-user"></i>Profile</a>
                 <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span
                         class="badge badge-info">6</span> </a>
                 <div class="dropdown-divider"></div>

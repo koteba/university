@@ -6,7 +6,7 @@
                <p class="mb-0"> &copy; {{trans('main_trans.Copyright')}} <span id="copyright">
                        <script>
                            document.getElementById('copyright').appendChild(document
-                               .createTextNode(new Date().getFullYear()))
+                               .createTextNode(new Date().getFullsection()));
                        </script>
                    </span>. <a href="#"> </a>{{trans('main_trans.Name_Programer')}}</p>
            </div>
